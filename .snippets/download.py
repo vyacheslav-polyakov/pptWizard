@@ -11,12 +11,16 @@ def index():
                             Generate Powerpoint\
                         </button>\
                     </a>\
-                    \
-                    <a href=/return-file/>\
+                    <a href=/return-file/ target=_blank>\
                         <button class="btn btn-default">\
                             Download\
                         </button>\
                     </a>\
+                    \
+                    <form action="" method="get">\
+                        <input type="text" name="topic" maxlength="100"/>\
+                    <form>\
+                    \
                 </body>'
 
 @app.route('/generate-file/')
