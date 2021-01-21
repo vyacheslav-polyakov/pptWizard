@@ -1,64 +1,36 @@
-from flask import Flask, send_file, request
-from flask_wtf import Form
-from wtforms import StringField, SubmitField
-from wtforms.validators import Required
+from flask import Flask, render_template, request, send_file
 from pptx import Presentation
 
 app = Flask(__name__)
+topic = None
 
 # Basic index page layout
 @app.route('/')
 def index():
-    return '<body>\
-                <a href=/generate-file/>\
-                        <button class="btn btn-default">\
-                            Generate Powerpoint\
-                        </button>\
-                    </a>\
-                    <a href=/return-file/ target=_blank>\
-                        <button class="btn btn-default">\
-                            Download\
-                        </button>\
-                    </a>\
-                    \
-                    <form method="POST">\
-                        <input type="text" name="topic" maxlength="100"/>\
-                        <input name="submit" />\
-                    <form>\
-                    \
-                </body>'
+    return render_template('index.html')
 
-'''
-# Creating forms from within flask to be rendered in html
-class TopicForm(Form):
-    topic = StringField('Topic:', validators=[Required()])
-    submit = SubmitField('Submit')
-'''
-# A simpler way to process topic input?
-@app.route('/', methods=['POST'])
-def process_topic():
-    topic = request.form['text']
-    return 'Your topic is ', topic
-
-# Generating powerpoints
-@app.route('/generate-file/')
-def generate_file():
+# Input form and submit button to run the pptWizard
+@app.route('/download', methods=['POST'])
+def start():
+    global topic
+    topic = request.form['topic']
+    
     prs = Presentation()
     title_slide_layout = prs.slide_layouts[0]
     slide = prs.slides.add_slide(title_slide_layout)
     title = slide.shapes.title
     subtitle = slide.placeholders[1]
 
-    title.text = 'Hello, World!'
+    title.text = topic
     subtitle.text = "pptWizard is coming soon."
 
-    prs.save('users/hello.pptx')
-    return 'Hello, World!'
+    prs.save('users/{}.pptx'.format(topic))
+    return render_template('download.html')
 
 # Sending powerpoints to download
-@app.route('/return-file/')
+@app.route('/return-file')
 def return_file():
-    return send_file('users/hello.pptx', as_attachment=True,attachment_filename='hello.pptx', cache_timeout=0)
+    return send_file('users/{}.pptx'.format(topic), as_attachment=True,attachment_filename='{}.pptx'.format(topic), cache_timeout=0)
 
 # Running the program
 if __name__ == ('__main__'):
