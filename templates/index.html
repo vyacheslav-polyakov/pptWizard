@@ -1,16 +1,50 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>pptWizard</title>
+	<meta charset="UTF-8">
+	<title>pptWizard</title>
+	<link rel="stylesheet" href="static/index.css">
 </head>
-
 <body>
-  <form action='/download' method="POST">
-      <input type="text" name="topic" maxlength="100" required />
-      <button class="btn btn-default">
-        Start
-      </button>
-  </form>
+	<section id="one">
+		<header>
+			<a href="">pptWizard</a>
+		</header>
+		<form action='/download' id="search-bar" method="POST" onsubmit="animateArrows()">
+				<img id="search-icon" src="static/search icon.png">
+				<input id="topic" name="topic" type="text" required='True' placeholder="What's the topic of your presentation?">
+				<button class="search-button" type="submit" form="search-bar">
+					<div id="arrow-box">
+						<span class="arrow"></span>
+						<span class="arrow"></span>
+						<span class="arrow"></span>
+					</div>
+					<script>
+						function animateArrows() {
+							const btn = document.getElementsByClassName('search-button')[0];
+							btn.addEventListener('click', function() {
+								btn.classList.add('starting')
+							});
+						}
+    				// Arrows blinking animation on hover
+						const btnElements = document.getElementsByClassName('search-button');
+						for (let i = 0; i <= btnElements.length; i++) {
+							btnElements[i].addEventListener('mouseover', function() {
+								btnElements[i].classList.add('hovered')
+							});
+							btnElements[i].addEventListener('mouseout', function() {
+								btnElements[i].classList.remove('hovered')
+							});
+						}
+					</script>
+				</button>
+		</form>
+	</section>
+	<section id="two">
+		Two
+	</section>
+	<section id="three">
+		Three
+	</section>
 </body>
-
 </html>

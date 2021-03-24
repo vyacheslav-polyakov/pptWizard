@@ -50,7 +50,6 @@ for paragraph in paragraphs:
 
     # Create a blank slide
     slide = ppt.slides.add_slide(ppt.slide_layouts[6])
-
     # See if there is an image to attach:
     path = images[paragraph]
     if path != None:
@@ -67,7 +66,6 @@ for paragraph in paragraphs:
         textWidth *= 2
         textTop += 0.2*inch
         pass
-
     # See if there is a headline to add
     headline = headlines[paragraphs.index(paragraph)]
 

@@ -210,7 +210,7 @@ def attachImages(article):
     # attachImages should return a dictionary of paragraphs and attached image paths
     images = {}
     # Create a directory for the images of this presentation specifically
-    folder = r"D:\Code\Works\Current\pptWizard\wizard\images"
+    folder = r"D:\Code\Works\pptWizard\.snippets\images"
     # Filter out all the forbidden characters from the title to make it a folder name
     folder = os.path.join(folder, formatTitle(article[0]))
     try:
@@ -256,7 +256,7 @@ def attachImages(article):
             codes = BeautifulSoup(browser.page_source, "lxml").find_all("script")
             for js in codes:
                 browser.execute_script(js.text)
-            # Find the img tag and it's src
+            # Find the img tag and its src
             allpics = browser.find_elements_by_tag_name("img")
             image = allpics[0]
             url = image.get_attribute("src")
@@ -288,7 +288,7 @@ def attachImages(article):
                     continue
                 # Handle access denial and inner library errors
                 except (urllib.error.HTTPError):
-                    print("\nSomething went wrong, image skipped.")
+                    print("\nHTTP Error, image skipped.")
                     images[text] = None
                     break
             # If no image was retrieved after the loop, attach an empty path to the paragraph
@@ -297,7 +297,7 @@ def attachImages(article):
                 images[text] = None
         # If something goes wrong, pass and add an empty path to the paragraph
         except (TimeoutError, TimeoutException):
-            print("Can't load the image, skipped.")
+            print("Timeout Error, skipped.")
             images[text] = None
             pass
     # Close the browser
@@ -316,8 +316,8 @@ detectedError = urllib.error.HTTPError
 
 '''
 1. Try to speed up the program by optimizing it in some way...
-2. Handle the better table formatting
+2. Handle the better table and list formatting
 3. Limit function is not working properly
-4. Use title in image search
+4. Use title in the simage search
 5. Find the dominant color in all images and use as the ppt's bg color
 '''
