@@ -18,7 +18,7 @@ section {
 #one header {
 	margin-top: 225px;
 	text-align: center;
-	margin:auto;
+	margin-left: 10px;
 }
 
 #one header a {
@@ -31,11 +31,11 @@ section {
 	background-color: #13151b;
 	height: 40px;
 	width: 700px;
-	margin:auto;
+	margin-left: 350px;
+	margin-top: 30px;
 	box-shadow: 0px 30px 50px 10px black;
 	display: inline-flex;
 }
-
 
 #search-icon {
 	height: 35px;
@@ -91,18 +91,6 @@ input::placeholder {
 	animation: blink 1s ease-in-out infinite;
 }
 
-.search-button.starting .arrow {
-	animation: blink 0.5s ease-in-out infinite;
-}
-
-.search-button.starting .arrow:nth-child(1) {
-	animation-delay: -0.2s;
-}
-
-.search-button.starting .arrow:nth-child(2) {
-	animation-delay: -0.4s;
-}
-
 @keyframes blink {
 	0% {
 		opacity: 1;
@@ -120,12 +108,4 @@ input::placeholder {
 	position: absolute;
 	margin-top:-2px;
 	border: solid 2px transparent;
-}
-
-#two {
-	background-color: #21ce21;
-}
-
-#three {
-	background-color: purple;
 }

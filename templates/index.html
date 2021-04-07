@@ -3,15 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>pptWizard</title>
-	<link rel="stylesheet" href="static/index.css">
+	<link rel="stylesheet" href="static\index.css">
 </head>
 <body>
+	<div>THIS IS PIPITON BRANCH</div>
 	<section id="one">
 		<header>
 			<a href="">pptWizard</a>
 		</header>
-		<form action='/download' id="search-bar" method="POST" onsubmit="animateArrows()">
-				<img id="search-icon" src="static/search icon.png">
+		<form action='/download' id="search-bar" method="POST">
+				<img id="search-icon" src="static\search icon.png">
 				<input id="topic" name="topic" type="text" required='True' placeholder="What's the topic of your presentation?">
 				<button class="search-button" type="submit" form="search-bar">
 					<div id="arrow-box">
@@ -20,12 +21,6 @@
 						<span class="arrow"></span>
 					</div>
 					<script>
-						function animateArrows() {
-							const btn = document.getElementsByClassName('search-button')[0];
-							btn.addEventListener('click', function() {
-								btn.classList.add('starting')
-							});
-						}
     				// Arrows blinking animation on hover
 						const btnElements = document.getElementsByClassName('search-button');
 						for (let i = 0; i <= btnElements.length; i++) {
@@ -39,12 +34,6 @@
 					</script>
 				</button>
 		</form>
-	</section>
-	<section id="two">
-		Two
-	</section>
-	<section id="three">
-		Three
 	</section>
 </body>
 </html>
