@@ -1,19 +1,39 @@
 <html>
 
 <head>
-  <title>pptWizard | Download</title>
+  <title>pipiton | Download</title>
+  <link rel="stylesheet" href='D:\Code\Works\pptWizard\static\download.css'>
 </head>
-
 <body>
+<div class='container'>
+  <nav>
+    <a href='/'>
+      <img id='logo' src="D:\Code\Works\pptWizard\static\type.png">
+    </a>
+		<a class='resp' href=#>about</a>
+		<a class='resp' href=#>blog</a>
+	</nav>
+  
+  <main>
   <a href=/return-file target=_blank>
-    <button class="btn btn-default">
+    <button class='resp' id="download">
       Download
     </button>
   </a>
+  <p>Your presentation is ready to download.</p>
+  </main>
+</div>
 
-  <a href='/'>
-    Go Back
-  </a>
+<script>
+const els = document.getElementsByClassName('resp');
+for (let i = 0; i <= els.length; i++) {
+						els[i].addEventListener('mouseover', function() {
+							els[i].classList.add('jumpy');
+						});
+						els[i].addEventListener('animationend', function() {
+							els[i].classList.remove('jumpy');
+						});
+					}
+</script>
 </body>
-
 </html>
