@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Loading</title>
+	<link rel="stylesheet" href="D:\Code\Works\pptWizard\static\loading.css">
+</head>
+
+<body>
+
+<video class="video-bg" width="100%" height="100%" preload="auto" loop autoplay muted playsinline>
+<source src="D:\Code\Works\pptWizard\static\pipiton_background.mp4" type="video/mp4">
+</video>
+
+<main>
+	<!--Link to the ppt must be publicly accessible, 
+	so use DEMO png over each slide in demo files-->
+	<div id='pptArea'>
+		<div id='placeholder'><p>Look at what our users created with Pipiton before</p></div>
+		<iframe src='https://view.officeapps.live.com/op/view.aspx?src=[https://www.pipiton.com/name.pptx]' frameborder='0'></iframe>
+	</div>
+	<div id='loading-bar'></div>
+    <p id='tip'>Take a break while our bots make your presentation.</p>
+</main>
+
+</body>
+</html>

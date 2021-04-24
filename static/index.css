@@ -4,7 +4,7 @@ body {
 	margin: 0;
 	overflow: hidden;
 	display: grid;
-	grid-template-rows: 10vmin 100vmin;
+	grid-template-rows: 20vmin 80vmin;
 	grid-template-columns: 100vmax;
 	grid-template-areas: 
 		"navigation"
@@ -13,11 +13,12 @@ body {
 	align-items: center;
 }
 
-.video-bg {
+#video-bg {
 	position: fixed;
 	object-fit: fill;
 	height: 110%; 
 	opacity: 0.7;
+	filter: blur(1px);
 }
 
 img {
@@ -27,7 +28,6 @@ img {
 
 nav {
 	position: relative;
-	top: 5vmin;
 	grid-area: navigation;
 	display: grid;
 	grid-template-columns: 60vmax 60vmax;
@@ -65,33 +65,6 @@ nav a {
 	width: 30%;
 }
 
-.growing {
-	animation-name: grow;
-	animation-duration: 250ms;
-	animation-fill-mode: forwards;
-}
-
-.shrinking {
-	animation-name: shrink;
-	animation-duration: 250ms;
-	animation-fill-mode: forwards;
-}
-
-@keyframes grow {
-	100% {
-		transform: scale(1.2);
-	}
-}
-
-@keyframes shrink {
-	0% {
-		transform: scale(1.2);
-	}
-	100% {
-		transform: scale(1);
-	}
-}
-
 main {
 	grid-area: content;
 	display: grid;
@@ -120,9 +93,8 @@ main {
 	margin: auto;
 	width: 55vmax;
 	height: 5vmax;
-	margin-bottom: 135px;
 	visibility: visible;
-	position: relative;
+	position: sticky;
 }
 
 #search-bar input {
@@ -150,6 +122,10 @@ main {
 	left: 5vmin;
 }
 
+#search-button:active {
+	transform: scale(0.95);
+}
+
 main p {
 	position: relative;
 	top: 2.5vmin;
@@ -157,6 +133,124 @@ main p {
 	font-size: 24px;
 	letter-spacing: 1px;
 	color: white;
+}
+
+/* After activation */
+#placeholder {
+	background-color: rgba(255, 255, 255, 0.8);
+	width: 704px;
+	height: 30px;
+	position: relative;
+	top: 15px;
+}
+
+#placeholder p {
+	font-size: 20px;
+	position: relative;
+	top: 0px;
+	letter-spacing: 1px;
+	color: black;
+}
+
+iframe {
+	position: relative;
+	top: 15px;
+	width: 700px;
+	height: 400px;
+}
+
+#pptArea {
+	position: relative;
+	bottom: 325px;
+	animation-name: ascend;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+#tip {
+	position: relative;
+	top: 100px;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 24px;
+	color: white;
+}
+
+/* ANIMATIONS */
+@keyframes ascend {
+	0% {
+		opacity: 0;
+		bottom: 300px;
+	}
+	100% {
+		opacity: 1;
+		bottom: 325px;
+	}
+}
+
+.grown {
+	animation-name: grow;
+	animation-duration: 250ms;
+	animation-fill-mode: forwards;
+}
+
+.shrunken {
+	animation-name: shrink;
+	animation-duration: 250ms;
+	animation-fill-mode: forwards;
+}
+
+@keyframes grow {
+	100% {
+		transform: scale(1.2);
+	}
+}
+
+@keyframes shrink {
+	0% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+.toFade {
+	opacity: 1;
+    -webkit-transition: opacity 1000ms linear;
+    transition: opacity 1000ms linear;
+}
+
+.shifted {
+	animation-name: shift;
+	animation-duration: 4s;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-out;
+}
+
+@keyframes shift {
+	0% {
+		top: 300px;
+	}
+	100% {
+		top: 800px;
+	}
+}
+
+.darkened {
+	animation: darken;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes darken {
+	0% {
+		opacity: 0.7;
+		filter: blur(1px);
+	}
+	100% {
+		opacity: 0.3;
+		filter: blur(3px);
+	}
 }
 
 /* SMALL SCREEN LAPTOPS */

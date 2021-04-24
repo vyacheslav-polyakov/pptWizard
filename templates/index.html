@@ -3,54 +3,122 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Pipiton | Home</title>
+	<title>Pipiton</title>
 	<link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="D:\Code\Works\pptWizard\static\index.css">
 </head>
 
 <body>
 
-<video class="video-bg" width="100%" height="100%" preload="auto" loop autoplay muted playsinline>
+<video id="video-bg" width="100%" height="100%" preload="auto" loop autoplay muted playsinline>
 <source src="D:\Code\Works\pptWizard\static\pipiton_background.mp4" type="video/mp4">
 </video>
 
 	<nav>
 		<div id=links>
-			<a class='link' href=# style="text-decoration: underline;">home</a>
-			<a class='link' href=#>about</a>
-			<a class='link' href=#>blog</a>
-			<a class='link' href=#>contact</a>
+			<a id='fade1' class='link toFade' href=# style="text-decoration: underline;">home</a>
+			<a id='fade2' class='link toFade' href=#>about</a>
+			<a id='fade3' class='link toFade' href=#>blog</a>
+			<a id='fade4' class='link toFade' href=#>contact</a>
 		</div>
 		<div id='langs'> 
-			<a class='link' href=#>русский</a>
-			<a class='link' href=#>中文</a>
+			<a id='fade5' class='link toFade' href=#>русский</a>
+			<a id='fade6' class='link toFade' href=#>中文</a>
 		</div>
 	</nav>
 
-	<main>
-		<img id='logo' src="D:\Code\Works\pptWizard\static\type.png">
-		<form id='search-bar' action='/download' method="POST">
-				<input id="topic" name="topic" type="text" required>
-				<button id="search-button" type="submit" form="search">
-					<img class='link' src="D:\Code\Works\pptWizard\static\search icon.png">
+	<main id='main'>
+		<img class='toFade' id='logo' src="D:\Code\Works\pptWizard\static\type.png">
+		<form class='' id='search-bar' action='/download' method="POST" onsubmit='shift();'>
+				<input class='toFade' id="topic" name="topic" type="text" required>
+				<button onclick='shift();' class='toFade' id="search-button" type="submit" form="search">
+					<img id='fade7' class='link toFade' src="D:\Code\Works\pptWizard\static\search icon.png">
 				</button>
 		</form>
-		<p>Give <strong>any</strong> topic, download a presentation.</p>
+		<p id='fade8' class='toFade'>Give <strong>any</strong> topic, download a presentation.</p>
 	</main>
 	
 
 <script>
 	const links = document.getElementsByClassName('link');
-					for (let i = 0; i <= links.length; i++) {
-						links[i].addEventListener('mouseover', function() {
-							links[i].classList.add('growing');
-							links[i].classList.remove('shrinking');
-						});
-						links[i].addEventListener('mouseout', function() {
-							links[i].classList.remove('growing');
-							links[i].classList.add('shrinking');
-						});
-					}
+	for (let i = 0; i <= links.length; i++) {
+		links[i].addEventListener('mouseover', function() {
+			links[i].classList.add('grown');
+			links[i].classList.remove('shrunken');
+		});
+			links[i].addEventListener('mouseout', function() {
+			links[i].classList.remove('grown');
+			links[i].classList.add('shrunken');
+		});
+	}
+	
+	function shift() {
+
+		// Darkening the video background
+		const video = document.getElementById('video-bg');
+		video.classList.add('darkened')
+		
+		// Fading and deleting the unnecessary elements
+		const fade1 = document.getElementById('fade1');
+		const fade2 = document.getElementById('fade2');
+		const fade3 = document.getElementById('fade3');
+		const fade4 = document.getElementById('fade4');
+		const fade5 = document.getElementById('fade5');
+		const fade6 = document.getElementById('fade6');
+		const fade7 = document.getElementById('fade7');
+		const fade8 = document.getElementById('fade8');
+		const logo = document.getElementById('logo');
+		fade1.style.opacity = '0';
+		fade2.style.opacity = '0';
+		fade3.style.opacity = '0';
+		fade4.style.opacity = '0';
+		fade5.style.opacity = '0';
+		fade6.style.opacity = '0';
+		fade7.style.opacity = '0';
+		fade8.style.opacity = '0';
+		logo.style.opacity = '0';
+		setTimeout(function(){fade8.parentNode.removeChild(fade8);}, 1000);
+		setTimeout(function(){logo.parentNode.removeChild(logo);}, 1000);
+		setTimeout(function(){fade1.parentNode.removeChild(fade1);}, 1000);
+		setTimeout(function(){fade2.parentNode.removeChild(fade2);}, 1000);
+		setTimeout(function(){fade3.parentNode.removeChild(fade3);}, 1000);
+		setTimeout(function(){fade4.parentNode.removeChild(fade4);}, 1000);
+		setTimeout(function(){fade5.parentNode.removeChild(fade5);}, 1000);
+		setTimeout(function(){fade6.parentNode.removeChild(fade6);}, 1000);
+		setTimeout(function(){fade7.parentNode.removeChild(fade7);}, 1000);
+		
+		// Shiftin the search/loading bar to bottom
+		const bar = document.getElementById('search-bar');
+		bar.classList.add('shifted');
+
+		// Making the iframe with the title ascend
+		setTimeout(function() {
+			const pptArea = document.createElement('div');
+			pptArea.setAttribute('id', 'pptArea');
+
+			const placeholder = document.createElement('div');
+			placeholder.setAttribute('id', 'placeholder');
+
+			const boxTitle = document.createElement('p');
+			boxTitle.innerHTML = 'Look at what our other users created with Pipiton before';
+			placeholder.appendChild(boxTitle);
+
+			pptArea.appendChild(placeholder);
+
+			const iFrame = document.createElement('iframe');
+			iFrame.setAttribute('src', 'https://view.officeapps.live.com/op/view.aspx?src=[https://www.pipiton.com/name.pptx]');
+		
+			pptArea.appendChild(iFrame);
+
+			const content = document.getElementById('main');
+			content.appendChild(pptArea);
+
+			const tip = document.createElement('p');
+			tip.setAttribute('id', 'tip');
+			content.append(tip);
+			
+		}, 1000);
+	}
 </script>
 
 </body>
