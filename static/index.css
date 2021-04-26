@@ -168,14 +168,74 @@ iframe {
 }
 
 #tip {
-	position: relative;
-	top: 100px;
+	position: absolute;
+	top: 330px;
+	width: 700px;
+	height: 20px;
 	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	font-size: 24px;
-	color: white;
+	font-size: 25px;
+	color: darkgray;
+	opacity: 0;
+	animation-name: tipFadeIn;
+	animation-duration: 4s;
+	animation-fill-mode: forwards;
+}
+
+progress {
+	position: sticky;
+	z-index: -1;
+	top: 541.5px;
+	width: 55vmax;
+	height: 5vmax;
+	border-radius: 60px;
+	border-width: 3px;
+	background: transparent;
+}
+
+progress::-webkit-progress-bar {
+    position: sticky;
+	z-index: -1;
+	top: 541.5px;
+	width: 55vmax;
+	height: 5vmax;
+	border-radius: 60px;
+	border-width: 3px;
+	background: transparent;
+}
+
+progress::-moz-progress-bar {
+    position: sticky;
+	z-index: -1;
+	top: 541.5px;
+	width: 55vmax;
+	height: 5vmax;
+	border-radius: 60px;
+	border-width: 3px;
+	background: transparent;
+}
+
+progress::-webkit-progress-value {
+    position: sticky;
+	z-index: -1;
+	top: 541.5px;
+	width: 55vmax;
+	height: 5vmax;
+	border-top-left-radius: 60px;
+	border-bottom-left-radius: 60px;
+	border-width: 3px;
+	background: white;
 }
 
 /* ANIMATIONS */
+@keyframes tipFadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 @keyframes ascend {
 	0% {
 		opacity: 0;

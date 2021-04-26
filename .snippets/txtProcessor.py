@@ -127,7 +127,7 @@ def noJoints(text):
             "as", "would", "have",
             "has", "will", "was",
             "were", "here", "could",
-            "or",
+            "or", "as",
             # Conjunctions in Russian
             "и","в","на","над","из",
             "для","с","под",

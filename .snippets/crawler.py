@@ -235,7 +235,8 @@ def attachImages(article):
         # See if the operation can be done with no errors this time
         try:
             # Choose type of images to look for
-            type = "&imgty=clipart"
+            #type = "&imgty=clipart"
+            type = ""
             # Set additional searching criteria
             criteria = "clipart"
             # Search the keywords in yahoo images
