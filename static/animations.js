@@ -12,6 +12,9 @@ const links = document.getElementsByClassName('link');
 	
 	function shift() {
 
+		// Preventing the user from accidentally closing the window
+		document.title = "Your ppt is being made";
+
 		// Darkening the video background
 		const video = document.getElementById('video-bg');
 		video.classList.add('darkened')
@@ -48,6 +51,9 @@ const links = document.getElementsByClassName('link');
 		// Shiftin the search/loading bar to bottom
 		const bar = document.getElementById('search-bar');
 		bar.classList.add('shifted');
+		
+		const input = document.getElementById('topic');
+		input.style.color = 'transparent';
 
 		// Making the iframe with the title ascend
 		setTimeout(function() {
@@ -74,13 +80,13 @@ const links = document.getElementsByClassName('link');
             // Add a tip to wait into the progress bar
 			const tip = document.createElement('p');
 			tip.setAttribute('id', 'tip');
-            tip.innerHTML = 'Take a break while our bots are making your ppt'; 
+            tip.innerHTML = 'Relax while bots are making your ppt'; 
 			content.append(tip);
 
             // Add a functioning progress bar
             const progress = document.createElement('progress');
             progress.setAttribute('max', '100');
-            progress.setAttribute('value', '0') // Put {{var}} from Flask
+            progress.setAttribute('value', '{{ fill }}') // Put {{var}} from Flask
             content.appendChild(progress); 
 
 			// Add this line when the Flask variable has been implemented:

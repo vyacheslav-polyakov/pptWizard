@@ -5,13 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Pipiton</title>
 	<link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="D:\Code\Works\pptWizard\static\index.css">
+	<link rel="stylesheet" href="static\index.css">
 </head>
 
 <body>
 
 <video id="video-bg" width="100%" height="100%" preload="auto" loop autoplay muted playsinline>
-<source src="D:\Code\Works\pptWizard\static\pipiton_background.mp4" type="video/mp4">
+<source src="static\pipiton_background.mp4" type="video/mp4">
 </video>
 
 	<nav>
@@ -28,17 +28,17 @@
 	</nav>
 
 	<main id='main'>
-		<img class='toFade' id='logo' src="D:\Code\Works\pptWizard\static\type.png">
-		<form class='' id='search-bar' action='/download' method="POST" onsubmit='shift();'>
+		<img class='toFade' id='logo' src="static\type.png">
+		<form class='' id='search-bar' action='/download' method="POST" onsubmit='shift();' autocomplete='off'>
 				<input class='toFade' id="topic" name="topic" type="text" required>
-				<button onclick='shift();' class='toFade' id="search-button" type="submit" form="search">
-					<img id='fade7' class='link toFade' src="D:\Code\Works\pptWizard\static\search icon.png">
+				<button class='toFade' id="search-button" type="submit" form="search-bar">
+					<img id='fade7' class='link toFade' src="static\search icon.png">
 				</button>
 		</form>
 		<p id='fade8' class='toFade'>Give <strong>any</strong> topic, download a presentation.</p>
 	</main>
 	
 
-<script src='D:\Code\Works\pptWizard\static\animations.js'></script>
+<script src='static\animations.js'></script>
 </body>
 </html>

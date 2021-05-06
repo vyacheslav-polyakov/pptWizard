@@ -176,9 +176,10 @@ iframe {
 	font-size: 25px;
 	color: darkgray;
 	opacity: 0;
-	animation-name: tipFadeIn;
-	animation-duration: 4s;
+	animation-name: tipFadeInOut;
+	animation-duration: 2s;
 	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
 }
 
 progress {
@@ -227,12 +228,15 @@ progress::-webkit-progress-value {
 }
 
 /* ANIMATIONS */
-@keyframes tipFadeIn {
+@keyframes tipFadeInOut {
 	0% {
 		opacity: 0;
 	}
-	100% {
+	50% {
 		opacity: 1;
+	}
+	100% {
+		opacity: 0;
 	}
 }
 

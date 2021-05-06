@@ -6,18 +6,18 @@ app = Flask(__name__)
 def index():
     return '<html>\
                 <body>\
-                    <form method="POST">\
+                    <form action="/act" method="POST">\
                         <input type="text" name="sushi" maxlength="100" />\
-                        <input name="submit" />\
+                        <button type="submit" />\
                     </form>\
                 </body>\
                 </html>'
 
-
-@app.route('/', methods=['POST'])
-def submit():
+@app.route('/act', methods=['POST'])
+def act():
     name = request.form['sushi']
     return 'Hello, {0}!'.format(name)
+
 
 
 if __name__ == '__main__':

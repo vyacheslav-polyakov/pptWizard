@@ -4,13 +4,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Pipiton | Download</title>
-	<link rel="stylesheet" href="D:\Code\Works\pptWizard\static\download.css">
+	<link rel="stylesheet" href="static\download.css">
 </head>
 
 <body>
 
 <video class="video-bg" width="100%" height="100%" preload="auto" loop autoplay muted playsinline>
-<source src="D:\Code\Works\pptWizard\static\pipiton_background.mp4" type="video/mp4">
+<source src="static\pipiton_background.mp4" type="video/mp4">
 </video>
 
 <main>
@@ -18,7 +18,7 @@
 	so use DEMO png over each slide in demo files-->
 	<p id='tip'>Your slides are ready for download.</p>
 	<a id='download-link' href=/return-file target=_blank>
-		<button id="download-button">
+		<button id="download-button" onclick='BackToHome();'>
 		  Download
 		</button>
 	  </a>
@@ -27,9 +27,12 @@
 		<div id='placeholder'><p>Preview of your new born ppt (demo includes ads)</p></div>
 		<iframe src='https://view.officeapps.live.com/op/view.aspx?src=[https://www.pipiton.com/name.pptx]' frameborder='0'></iframe>
 	</div>
-
-	
 </main>
 
+<script>
+function BackToHome() {
+    window.location = 'http://localhost:5000';
+}
+</script>
 </body>
 </html>
